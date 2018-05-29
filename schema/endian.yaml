@@ -1,0 +1,6 @@
+---
+schema;endian:
+    type: str
+    enum:
+        - big
+        - little

@@ -1,0 +1,24 @@
+---
+schema;unit:
+    type: str
+    enum:
+        # Please keep this list sorted to avoid accidental duplicates.
+        - bytes
+        - celcius
+        - degrees
+        - g/s
+        - km
+        - km/h
+        - kpa
+        - meters
+        - microsec
+        - m/s
+        - m/s^2
+        - n/a
+        - nm
+        - pa
+        - percent
+        - rad/s
+        - rpm
+        - seconds
+    required: true

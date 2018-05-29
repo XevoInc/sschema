@@ -1,0 +1,11 @@
+---
+schema;type:
+    type: str
+    enum:
+        # Please keep this list sorted to avoid accidental duplicates.
+        - bytes
+        - float
+        - int8
+        - signed double
+        - uint16
+        - uint8
