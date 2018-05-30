@@ -21,4 +21,3 @@ schema;unit:
         - rad/s
         - rpm
         - seconds
-    required: true
