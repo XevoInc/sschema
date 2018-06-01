@@ -1,11 +1,11 @@
 ---
-schema;type:
-    type: str
-    enum:
-        # Please keep this list sorted to avoid accidental duplicates.
-        - bytes
-        - float
-        - int8
-        - signed double
-        - uint16
-        - uint8
+description: A primitive data type supported by the C language
+type: string
+enum:
+  # Please keep this list sorted to avoid accidental duplicates.
+  - bytes
+  - float
+  - int8
+  - signed double
+  - uint16
+  - uint8

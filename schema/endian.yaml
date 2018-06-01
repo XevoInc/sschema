@@ -1,6 +1,6 @@
 ---
-schema;endian:
-    type: str
-    enum:
-        - big
-        - little
+description: The endianness of the OBD-II data
+type: string
+enum:
+  - big
+  - little
