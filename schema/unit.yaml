@@ -1,6 +1,6 @@
 ---
 description: A data unit
-type: str
+type: string
 enum:
   # Please keep this list sorted to avoid accidental duplicates.
   - bytes
