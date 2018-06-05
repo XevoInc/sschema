@@ -1,7 +1,7 @@
 # Summary.
 project('sensor-schema', version: '0.1', license: 'proprietary')
 
-install_subdir('schema', install_dir: 'schema', strip_directory: true)
+install_subdir('data', install_dir: 'schema', strip_directory: true)
 
 pkg = import('pkgconfig')
 pkg.generate(
