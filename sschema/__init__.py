@@ -6,9 +6,6 @@ import types
 
 import jsonschema
 
-import sschema.formatchecker
-import sschema.handler
-
 
 class SSchemaError(Exception):
     def __init__(self, msg):
@@ -42,8 +39,8 @@ def make_resolver(schema, items):
     handlers = {}
     for item in items:
         if isinstance(item, types.ModuleType):
-            func = module.handler
-            name = module.HANDLER_NAME
+            func = item.handler
+            name = item.HANDLER_NAME
         elif isinstance(item, tuple) or isinstance(item, list):
             if len(item) != 2:
                 raise SSchemaError(
