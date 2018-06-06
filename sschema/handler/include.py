@@ -5,6 +5,7 @@ work.
 '''
 
 import functools
+import pkgutil
 import os
 
 import yaml
@@ -37,3 +38,12 @@ def make_handler(include_paths):
     '''Returns an include handler and name (for use with make_resolver) that
     uses the give include paths.'''
     return (functools.partial(_handler, include_paths), HANDLER_NAME)
+
+
+def make_default_handler():
+    '''Returns a default handler, which uses the common schemas defined in
+    sschema as the include path.'''
+    mod_path = pkgutil.get_loader('sschema').path
+    mod_parent = os.path.realpath(os.path.join(mod_path, os.pardir))
+    schema_path = os.path.join(mod_parent, 'schema')
+    return make_handler([schema_path])
