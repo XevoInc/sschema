@@ -1,8 +1,8 @@
-# Sensor schemas
-This repository contains code used for handling schemas for edge sensor data. It
-is intended to be used as a shared codebase for sensor data schemas. By using
-this repository, all software handling sensor data can agree on schema format
-and simple things like representation of units.
+# sschema
+sschema is a Python module to facilitate checking YAML schemas in an extensible
+way. Although the schemas are represented in YAML, it internally uses jsonschema.
 
-When writing a schema for sensor data, any reusable or possibly duplicative
-schema data should be put in this repository.
+In addition, sschema provides a number of prewritten schemas (e.g. for things
+like units and types) that can be included in other projects in order to
+facilitate code reuse and standardize on a common schema format for projects
+using sschema.
