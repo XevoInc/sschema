@@ -11,7 +11,11 @@ setuptools.setup(
     author_email='mkelly@xevo.com',
     license='Apache',
     python_requires='>=3',
-    install_requires=['PyYAML>=3.12'],
+    install_requires=[
+        'PyYAML',
+        'simpleeval',
+        'jsonschema'
+    ],
     packages=['sschema',
               'sschema.formatchecker',
               'sschema.handler'],
