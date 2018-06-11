@@ -43,4 +43,7 @@ def check(val):
         # eval can throw anything the Python parser can throw, so it's hard to
         # catch every possible item. So, exempt ourselves from this particular
         # flake8 warning.
-        raise jsonschema.exceptions.FormatError
+        raise jsonschema.exceptions.FormatError('"%s" is not valid infix'
+                                                % val)
+
+    return True
