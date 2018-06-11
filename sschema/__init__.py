@@ -22,7 +22,7 @@ def make_format_checker(modules):
         func = module.check
         name = module.FORMAT_NAME
         # Manually decorate the format checker with our format.
-        format_checker.checks(func)(name)
+        format_checker.checks(name)(func)
     return format_checker
 
 
