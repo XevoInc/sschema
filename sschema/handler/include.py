@@ -5,7 +5,7 @@ work.
 '''
 
 import functools
-import pkgutil
+import pkg_resources
 import os
 
 import yaml
@@ -43,7 +43,5 @@ def make_handler(include_paths):
 def make_default_handler():
     '''Returns a default handler, which uses the common schemas defined in
     sschema as the include path.'''
-    mod_path = pkgutil.get_loader('sschema').path
-    mod_parent = os.path.realpath(os.path.join(mod_path, os.pardir))
-    schema_path = os.path.join(mod_parent, 'schema')
+    schema_path = pkg_resources.resource_filename('sschema', 'schema')
     return make_handler([schema_path])
