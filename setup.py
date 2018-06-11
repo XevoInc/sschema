@@ -1,9 +1,32 @@
 #!/usr/bin/python3
 
-import setuptools
+import os
+from setuptools import setup
+from setuptools.command.install import install
+import stat
 
 
-setuptools.setup(
+class FixPermsInstall(install):
+    '''Custom install class just to fix permissions for the schema data.'''
+    def run(self):
+        '''Fix schema data permissions.'''
+        install.run(self)
+
+        no_exec_mask = ~(stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+        for filepath in self.get_outputs():
+            parent = os.path.basename(os.path.dirname(filepath))
+            if parent != 'schema':
+                continue
+
+            # Open the file so there's no race between the stat and the
+            # chmod.
+            with open(filepath, 'r') as f:
+                fd = f.fileno()
+                st = os.fstat(fd)
+                os.fchmod(fd, st.st_mode & no_exec_mask)
+
+
+setup(
     name='sschema',
     version='0.0.1',
     description='A library and prebuilt schemas for handling edge sensor data',
@@ -20,6 +43,9 @@ setuptools.setup(
               'sschema.formatchecker',
               'sschema.handler'],
     package_data={'sschema': ['schema/*']},
+    cmdclass={
+        'install': FixPermsInstall
+    },
     classifiers=['Development Status :: 3 - Alpha',
                  'Environment :: Console',
                  'Intended Audience :: Developers',
@@ -29,5 +55,5 @@ setuptools.setup(
                  'Programming Language :: Python :: 3 :: Only',
                  'Topic :: Software Development :: Embedded Systems',
                  'Topic :: Software Development :: Testing :: Acceptance',
-                 ],
+                 ]
 )
