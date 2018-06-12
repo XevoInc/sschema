@@ -17,7 +17,8 @@ FORMAT_NAME = 'infix'
 
 
 def check(val):
-    '''Returns True if val is a valid infix expression and False otherwise.'''
+    '''Returns True if val is a valid infix expression and raises FormatError
+    otherwise.'''
     operators = {
         ast.Add: operator.add,
         ast.Sub: operator.sub,
