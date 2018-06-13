@@ -1,0 +1,18 @@
+---
+$schema: http://json-schema.org/draft-06/schema#
+description: A data unit
+type: string
+enum:
+  # Please keep this list sorted to avoid accidental duplicates.
+  - byte
+  - K
+  - kg/s
+  - m
+  - m/s
+  - m/s^2
+  - none
+  - Pa
+  - percent
+  - rad
+  - rad/s
+  - s
