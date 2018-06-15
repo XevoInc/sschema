@@ -10,14 +10,14 @@ enum:
   - g/s
   - km
   - km/h
-  - kpa
+  - kPa
   - m
   - microsecond
   - m/s
   - m/s^2
   - n/a
   - nm
-  - pa
+  - Pa
   - percent
   - rad/s
   - rpm
