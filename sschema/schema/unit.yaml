@@ -4,15 +4,15 @@ description: A data unit
 type: string
 enum:
   # Please keep this list sorted to avoid accidental duplicates.
-  - bytes
+  - byte
   - celsius
-  - degrees
+  - degree
   - g/s
   - km
   - km/h
   - kpa
-  - meters
-  - microsec
+  - m
+  - microsecond
   - m/s
   - m/s^2
   - n/a
@@ -21,4 +21,4 @@ enum:
   - percent
   - rad/s
   - rpm
-  - seconds
+  - s
