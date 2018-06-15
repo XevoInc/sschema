@@ -5,7 +5,7 @@ type: string
 enum:
   # Please keep this list sorted to avoid accidental duplicates.
   - bytes
-  - celcius
+  - celsius
   - degrees
   - g/s
   - km
