@@ -28,7 +28,7 @@ class FixPermsInstall(install):
 
 setup(
     name='sschema',
-    version='0.0.1',
+    version='0.1',
     description='A library and prebuilt schemas for handling edge sensor data',
     author='Martin Kelly',
     author_email='mkelly@xevo.com',
