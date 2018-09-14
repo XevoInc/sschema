@@ -25,11 +25,18 @@ class FixPermsInstall(install):
                 st = os.fstat(fd)
                 os.fchmod(fd, st.st_mode & no_exec_mask)
 
+# Keep the long description in sync with the README.
+script_dir = os.path.dirname(os.path.realpath(__file__))
+readme_path = os.path.join(script_dir, 'README.md')
+with open(readme_path, 'r') as f:
+    long_desc = f.read()
 
 setup(
     name='sschema',
     version='0.1',
     description='A library and prebuilt schemas for handling edge sensor data',
+    long_description=long_desc,
+    long_description_content_type='text/markdown',
     author='Martin Kelly',
     author_email='mkelly@xevo.com',
     license='Apache',
