@@ -1,6 +1,6 @@
 ---
 $schema: http://json-schema.org/draft-06/schema#
-description: The endianness of the OBD-II data
+description: The endianness of the data
 type: string
 enum:
   - big
