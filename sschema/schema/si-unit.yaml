@@ -15,8 +15,10 @@ enum:
   - m/s
   - m/s^2
   - none
+  # Not technically SI, but using seconds requires float values, which cause
+  # many issues for computers.
+  - ns
   - Pa
   - percent
   - rad
   - rad/s
-  - s
