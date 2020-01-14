@@ -16,22 +16,20 @@ HANDLER_NAME = 'include'
 
 def _handler(include_paths, uri):
     '''Handles an URI of form include://'''
-    base = 'include://'
-    assert(uri.startswith(base))
-    uri = uri[len(base):]
+    scheme = 'include://'
+    assert(uri.startswith(scheme))
+    uri = uri[len(scheme):]
 
-    data = None
-    for path in include_paths:
-        uri = os.path.join(path, uri)
+    for base in include_paths:
+        path = os.path.join(base, uri)
         try:
-            f = open(uri, 'r')
+            f = open(path, 'r')
         except FileNotFoundError:
             continue
         else:
             with f:
-                data = yaml.load(f)
-                break
-    return data
+                return yaml.safe_load(f)
+    raise FileNotFoundError('include handler could not find path "{}" in any of {}'.format(uri, include_paths))
 
 
 def make_handler(include_paths):
