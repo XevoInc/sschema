@@ -11,7 +11,7 @@ import os
 import yaml
 
 
-HANDLER_NAME = 'sschema'
+DEFAULT_HANDLER_NAME = 'sschema'
 
 
 def _handler(name, include_paths, uri):
@@ -32,7 +32,7 @@ def _handler(name, include_paths, uri):
     raise FileNotFoundError('{} handler could not find path "{}" in any of {}'.format(name, uri, include_paths))
 
 
-def make_handler(include_paths, name=HANDLER_NAME):
+def _make_handler(include_paths, name):
     '''Returns an include handler and name (for use with make_resolver) that
     uses the give include paths.'''
     return (functools.partial(_handler, name, include_paths), name)
@@ -42,4 +42,12 @@ def make_default_handler():
     '''Returns a default handler, which uses the common schemas defined in
     sschema as the include path.'''
     schema_path = pkg_resources.resource_filename('sschema', 'schema')
-    return make_handler([schema_path])
+    return _make_handler([schema_path], DEFAULT_HANDLER_NAME)
+
+
+def make_handler(include_paths, name):
+    '''Returns an include handler and name (for use with make_resolver) that
+    uses the given include paths.'''
+    if name == DEFAULT_HANDLER_NAME:
+        raise ValueError('Handler name "{}" is reserved for internal use'.format(name))
+    return _make_handler(include_paths, name)
