@@ -30,10 +30,10 @@ def make_resolver(schema, items):
     '''Makes a resolver for use in jsonschema validation. Takes a schema (a
     required argument of RefResolver.__init__ and either:
 
-    - a list of modules each of which has a top-level "handler" (a handler
+    - a list of modules, each of which has a top-level "handler" (a handler
       function) and a constant "HANDLER_NAME" (the name of the handler prefix).
     - a list of tuples of the form (function, name), where function is a
-      handler functiond an name is a handler prefix.
+      handler function and name is a handler prefix.
 
     From this we create and return a RefResolver object.'''
     handlers = {}

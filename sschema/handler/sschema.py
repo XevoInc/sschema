@@ -1,7 +1,6 @@
 '''
 A resolver that searches a list of include paths for YAML files matching the
 given name. The include paths must be set prior to validation.
-work.
 '''
 
 import functools
