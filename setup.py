@@ -46,9 +46,7 @@ setup(
         'simpleeval',
         'jsonschema'
     ],
-    packages=['sschema',
-              'sschema.formatchecker',
-              'sschema.handler'],
+    packages=['sschema', 'sschema.handler'],
     package_data={'sschema': ['schema/*']},
     cmdclass={
         'install': FixPermsInstall
