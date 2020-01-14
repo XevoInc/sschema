@@ -33,7 +33,7 @@ with open(readme_path, 'r') as f:
 
 setup(
     name='sschema',
-    version='0.1.2',
+    version='0.1.3',
     description='A library and prebuilt schemas for handling edge sensor data',
     long_description=long_desc,
     long_description_content_type='text/markdown',
