@@ -11,12 +11,12 @@ import os
 import yaml
 
 
-HANDLER_NAME = 'include'
+HANDLER_NAME = 'sschema'
 
 
-def _handler(include_paths, uri):
-    '''Handles an URI of form include://'''
-    scheme = 'include://'
+def _handler(name, include_paths, uri):
+    '''Handles an URI of form {name}://'''
+    scheme = '{}://'.format(name)
     assert(uri.startswith(scheme))
     uri = uri[len(scheme):]
 
@@ -29,13 +29,13 @@ def _handler(include_paths, uri):
         else:
             with f:
                 return yaml.safe_load(f)
-    raise FileNotFoundError('include handler could not find path "{}" in any of {}'.format(uri, include_paths))
+    raise FileNotFoundError('{} handler could not find path "{}" in any of {}'.format(name, uri, include_paths))
 
 
-def make_handler(include_paths):
+def make_handler(include_paths, name=HANDLER_NAME):
     '''Returns an include handler and name (for use with make_resolver) that
     uses the give include paths.'''
-    return (functools.partial(_handler, include_paths), HANDLER_NAME)
+    return (functools.partial(_handler, name, include_paths), name)
 
 
 def make_default_handler():
