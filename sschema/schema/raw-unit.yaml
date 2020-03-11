@@ -11,6 +11,8 @@ enum:
   - km
   - km/h
   - kPa
+  - lat
+  - lng
   - m
   - microsecond
   - m/s
