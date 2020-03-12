@@ -17,7 +17,7 @@ enum:
   - microsecond
   - m/s
   - m/s^2
-  - n/a
+  - none
   - nm
   - Pa
   - percent
