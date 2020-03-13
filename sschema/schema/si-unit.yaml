@@ -7,6 +7,11 @@ enum:
   - byte
   - K
   - kg/s
+  # For most angle measurements, use radians (which are SI). It's awkward to do
+  # this for latitude and longitude, so we make a special exception here.
+  # (https://en.wikipedia.org/wiki/Non-SI_units_mentioned_in_the_SI)
+  - lat
+  - lng
   - m
   - m/s
   - m/s^2
@@ -18,8 +23,3 @@ enum:
   - percent
   - rad
   - rad/s
-  # For most angle measurements, use radians (which are SI). It's awkward to do
-  # this for latitude and longitude, so we make a special exception here.
-  # (https://en.wikipedia.org/wiki/Non-SI_units_mentioned_in_the_SI)
-  - lat
-  - lng
