@@ -4,6 +4,7 @@ description: A primitive data type supported by the C language
 type: string
 enum:
   # Please keep this list sorted to avoid accidental duplicates.
+  - bool
   - bytes
   - double
   - float
